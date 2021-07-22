@@ -95,7 +95,7 @@ $h: em(2);
 	will-change: transform;
 
 	&__inner {
-		padding: rem(20) 0;
+		padding: rem(20);
 		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -103,6 +103,7 @@ $h: em(2);
 		@include mt(.3s);
 		transition-delay: .4s;
 		opacity: var(--opacity);
+		background-color: $white;
 	}
 
 	&.active { 
@@ -139,21 +140,70 @@ $h: em(2);
 		}
 	}
 
-	ul {
-		position: relative;
-	}
+	.menu{
+		list-style: none;
+		padding: 0;
+		margin: 0 0 rem(24);
 
-	li {
 		display: block;
-		margin: 0;
-		border-top: 1px solid rgba(255, 255, 255, .13);
+		align-items: center;
 
-		a {
-			// font-size: 16px;
+		li{
+			margin-bottom: rem(24);
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		a{
+			text-decoration: none;
+			font-weight: bold;
 
-			padding: 10px;
-			display: block;
+			font-size: rem(14);
+			line-height: (17/14);
 
+			color: $primary;
+			&:hover{
+				color: $primary;
+			}
 		}
 	}
+
+	//
+	&__logo{
+		width: rem(180);
+		display: block;
+		margin-bottom: rem(35);
+
+		img{
+			width: auto;
+			max-width: 100%;
+		}
+	}
+
+	.soc-row{
+		&__soc-item{
+			border-radius: 4px;
+			background-color: $primary;
+			color: $white;
+		}
+	}
+
+	//catalog-btn
+	&__catalog-btn{
+		@extend .btn;
+		@extend .btn-primary;
+		display: inline-flex;
+		align-items: center;
+		margin-bottom: rem(20);
+
+		.icon{
+			font-size: 16px;
+			margin-right: 10px;
+			color: $white;
+		}
+
+		font-weight: 600;
+		color: $white;
+	}
+
 }

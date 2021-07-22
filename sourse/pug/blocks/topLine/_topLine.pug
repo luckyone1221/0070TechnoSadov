@@ -1,9 +1,20 @@
 mixin topLine()
 	// start topLine
-	+b.SECTION.topLine.section#topLine&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 topLine
-				
-			.row
+	+b.SECTION.topLine.d-none.d-lg-block#topLine&attributes(attributes)
+		+e.container.container
+			+e.row.row.align-items-center
+				.col-auto
+					+socRow()
+				.col
+					+mnu()
 	// end topLine
+mixin socRow(addClasses)
+	+b.soc-row.row(class=addClasses)
+		+topLineSocItem('fb')
+		+topLineSocItem('inst')
+		+topLineSocItem('tg')
+
+mixin topLineSocItem(iconName)
+	.col-auto
+		+e.soc-item(href='#')
+			+icon(iconName)

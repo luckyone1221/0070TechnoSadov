@@ -1,28 +1,69 @@
 mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
 	+b.menu-mobile--js.d-lg-none
 		+b.toggle-menu-mobile--js
 			span
 		+e.inner
+			+e.logo
+				img(loading="lazy" src="img/svg/logo.svg" alt="")
 			+mnu()
+			.d-md-none
+				+mnu2()
+				+e.catalog-btn
+					+icon('burger')
+					span Все услуги
+			+topNavItems('mb-4')
+			+socRow('mb-3')
+
 	//  мобильное меню
+
 mixin top-nav() 
 	// start top-nav
 	+b.top-nav.block-with-lazy
-		.container
-			.row
+		+e.container.container
+			+e.row.row.align-items-center
+				.col.col-md-auto
+					+e.logo
+						img(loading="lazy" src="img/svg/logo.svg" alt="")
+				.col.d-none.d-md-block
+					+topNavItems()
+				.col-auto
+					+e.lc(href='#')
+						+icon('login')
+						span Вход
 				.col-auto.d-lg-none
 					+b.toggle-menu-mobile--js
 						span
-				.col.d-none.d-lg-block
+				//.col.d-none.d-lg-block
 					+mnu()
 					
 	// end top-nav
+
+mixin topNavItems(addClasses)
+	+b.tn-items(class=addClasses)
+		+e.row.row
+			+topNavItem('logo')
+				+e.i-black--block Москва
+				+e.i-sm(href='#') Выбрать другой город
+			+topNavItem('tel')
+				+e.i-black(href='tel:88005503770') 8 800 550-37-70
+				+e.i-sm(href='tel:88005503770') Звонок бесплатный
+
+mixin topNavItem(iconName)
+	.col-auto
+		+e.item-row.row
+			+e.icon-col.col-auto
+				+icon(iconName)
+			.col
+				block
+
+mixin bot-nav()
+	+b.bot-nav.d-none.d-md-block
+		+e.container.container
+			+e.row.row.align-items-center
+				.col-auto
+					+e.all-btn-cont
+						+e.all-btn
+							+icon('burger')
+							span Все услуги
+				.col
+					+mnu2()

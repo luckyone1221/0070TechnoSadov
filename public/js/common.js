@@ -279,8 +279,8 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask();
 	JSCCommon.sendForm();
-	JSCCommon.heightwindow();
-	JSCCommon.animateScroll(); // JSCCommon.CustomInputFile(); 
+	JSCCommon.heightwindow(); // JSCCommon.animateScroll();
+	// JSCCommon.CustomInputFile(); 
 
 	var x = window.location.host;
 	let screenName;
