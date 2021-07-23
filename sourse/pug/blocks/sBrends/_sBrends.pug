@@ -1,0 +1,15 @@
+mixin sBrends(data)
+	// start sBrends
+	+b.SECTION.sBrends.section#sBrends&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Обслуживаемые марки
+			+e.row.row
+				-for(var i = 1; i <= 12; i++)
+					+sBrendsItem(i)
+	// end sBrends
+
+mixin sBrendsItem(imgNum)
+	.col-6.col-sm-4.col-md-3.col-xl-2
+		+e.item(href='#')
+			img(loading="lazy" src=`img/@2x/sBrends-img-${imgNum}.jpg` alt="")

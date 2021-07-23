@@ -1,0 +1,108 @@
+// start .sRepair
+.sRepair {
+	--sPT: #{rem(50)};
+	--sPB: #{rem(24)};
+	--sTPB: #{rem(24)};
+
+	.section-title{
+		h2{
+
+		}
+	}
+	&__chb-row{
+		--bs-gutter-y: #{rem(12)};
+
+		--bs-gutter-x: #{rem(12)};
+		@include media-breakpoint-up(sm){
+			--bs-gutter-x: #{rem(24)};
+		}
+
+		padding-bottom: rem(48);
+		@include media-breakpoint-up(xl){
+			padding-bottom: rem(56);
+		}
+	}
+	&__chb-label{
+		input:checked + .c-btn{
+			border: 1px solid $primary;
+			background-color: $primary;
+			color: $white;
+		}
+
+		.c-btn{
+			@include mt();
+			border-radius: rem(8);
+
+			padding: rem(8) rem(12);
+			@include media-breakpoint-up(sm){
+				padding: rem(11) rem(22);
+			}
+
+			background: $white;
+			border: 1px solid $gray-500;
+			&:hover{
+				border: 1px solid $primary;
+			}
+
+			font-weight: bold;
+			font-size: rem(14);
+			line-height: (24/14);
+			color: $body-color;
+		}
+	}
+	//
+	&__row{
+		--bs-gutter-x: #{rem(24)};
+		--bs-gutter-y: #{rem(24)};
+	}
+	&__item{
+		text-align: center;
+		text-decoration: none;
+		display: block;
+
+		width: 100%;
+		min-height: 100%;
+
+		box-shadow: 0px 8px 16px rgba(80, 87, 105, 0.05);
+		border-radius: rem(8px);
+
+		background: $white;
+		border: 1px solid $gray-500;
+		color: $body-color;
+		&:hover{
+			border: 1px solid $primary;
+			color: $primary;
+		}
+
+		padding: rem(24);
+	}
+	&__i-img{
+		height: rem(168);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: rem(24);
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__txt{
+		font-weight: bold;
+
+		font-size: rem(18);
+		line-height: (24/18);
+		min-height: rem(48);
+
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+	}
+	//
+	&__{}
+	&__{}
+} // end.sRepair

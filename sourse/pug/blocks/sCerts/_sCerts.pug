@@ -1,0 +1,21 @@
+mixin sCerts(data)
+	// start sCerts
+	+b.SECTION.sCerts.section#sCerts&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Сертификаты
+			+e.slider-wrap
+				.swiper-container.sCerts-slider-js
+					.swiper-wrapper
+						+sCertsSlide()
+						+sCertsSlide()
+						+sCertsSlide()
+						+sCertsSlide()
+						+sCertsSlide()
+						+sCertsSlide()
+	// end sCerts
+
+mixin sCertsSlide()
+	.swiper-slide
+		+e.img(href=`img/@2x/sCerts-1.jpg` data-fancybox='sCerts-imgs')
+			img(loading="lazy" src=`img/@2x/sCerts-1.jpg` alt="")

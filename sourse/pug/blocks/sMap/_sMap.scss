@@ -1,0 +1,15 @@
+// start .sMap
+.sMap {
+	--sPT: #{rem(36)};
+	--sPB: #{rem(0)};
+	--sTPB: #{rem(50)};
+
+	&__img-stab{
+		@extend .accept-ratio-frame-nh;
+
+		min-height: rem(400);
+		@include media-breakpoint-up(sm){
+			min-height: rem(600);
+		}
+	}
+} // end.sMap

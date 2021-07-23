@@ -334,6 +334,50 @@ function eventHandler() {
 
 	});
 	// modal window
+	//luckyoneJs
+
+	let sCertsSlider = new Swiper('.sCerts-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+	});
+
+	//sTags
+	let sTagsSlider = new Swiper('.sTags-slider-js', {
+		slidesPerView: 'auto',
+		loop: true,
+		spaceBetween: 24,
+
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+	$('.sTags-show-btn-js').click(function (){
+		$(this).toggleClass('active');
+		//
+		$('.sTags-slider-wrap-js').toggleClass('active').find('.swiper-button-hand').fadeToggle(function (){
+			$(this).toggleClass('hidden');
+		})
+
+		$('.sTags-close-btn-js').fadeIn(function (){
+			$(this).addClass('active');
+		});
+	})
+	$('.sTags-close-btn-js').click(function (){
+		$(this).fadeOut(function (){
+			$(this).removeClass('active');
+		});
+
+		$('.sTags-show-btn-js').removeClass('active');
+		$('.sTags-slider-wrap-js').removeClass('active').find('.swiper-button-hand').fadeIn(function (){
+			$(this).removeClass('hidden');
+		})
+	})
+
+	//
+
+	//end luckyoneJs
+
 
 };
 if (document.readyState !== 'loading') {

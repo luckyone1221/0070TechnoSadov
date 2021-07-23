@@ -1,9 +1,53 @@
 mixin footer()
 	+b.FOOTER.footer
 		.container
-			.row
-				.col
-					
-				.col
-				.col
-				.col-auto
+			+e.row.row
+				.col-sm-6.col-lg-3
+					+e.logo
+						img(loading="lazy" src=`img/svg/footer-logo.svg` alt="")
+					+e.pushed-content
+						+e.tells
+							+e.tell(href="tel:88009234567") 8 800 923-45-67
+							+e.tell(href="tel:89217120521") 8 921 712-05-21
+							+e.call-order(href='#') Заказать звонок
+						+e.soc-row.row
+							+footerSocItem('fb')
+							+footerSocItem('vk')
+							+footerSocItem('inst')
+				.col-sm-6.col-lg-3
+					+e.menu--bold
+						ul
+							li: a(href='#') Все услуги
+							li: a(href='#') Обслуживаемые марки
+							li: a(href='#') Техническое обслуживание
+							li: a(href='#') Сервисные центры
+				.col-sm-6.col-lg-3
+					+e.menu--regular
+						ul
+							li: a(href='#') О компании
+							li: a(href='#') Статьи про ремонт техники
+							li: a(href='#') Условия приема техники
+							li: a(href='#') Oплата и доставка
+							li: a(href='#') Юридическим лицам
+							li: a(href='#') Контакты
+				.col-sm-6.col-lg-3
+					+e.know Узнавайте о новинках, акциях и выгодных предложениях первыми
+					+e.input-cont
+						+input('Электронная почта', 'email')
+						+e.arrow(type="submit")
+							img(loading="lazy" src="img/svg/arrow-right.svg" alt="")
+			+e.bot-row.row.align-items-center
+				.col-lg
+					+e.all-rights
+						| ©
+						|
+						span.put-curr-year 2020
+						|
+						| Технодобро — официальный интернет-магазин бытовой техники. Все права защищены.
+				.col-lg-auto
+					+e.policy(href='#') Политика конфиденциальности
+
+mixin footerSocItem(imgName)
+	.col-auto
+		+e.soc-item(href='#')
+			img(loading='lazy' src=`img/svg/soc-white-${imgName}.svg` alt="")

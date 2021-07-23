@@ -1,0 +1,40 @@
+// start .sBrends
+.sBrends {
+	--sPT: #{rem(48)};
+
+	--sPB: #{rem(60px)};
+	@include media-breakpoint-up(md){
+		--sPB: #{rem(88px)};
+	}
+	--sTPB: #{rem(50)};
+
+	.section-title{
+
+	}
+	&__row{
+		--bs-gutter-x: #{rem(24)};
+		--bs-gutter-y: #{rem(24)};
+	}
+	&__item{
+		@extend .accept-ratio-frame;
+		padding-top: (120/194) * 100%;
+
+		border: 1px solid $gray-500;
+		box-shadow: 0px 8px 16px rgba(80, 87, 105, 0.05);
+		border-radius: rem(8);
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+			left: 50%;
+			top: 50%;
+			transform: translateY(-50%) translateX(-50%);
+		}
+	}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+} // end.sBrends

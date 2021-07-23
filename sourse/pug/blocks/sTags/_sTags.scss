@@ -1,0 +1,167 @@
+// start .sTags
+.sTags {
+
+	&__slider-wrap{
+		position: relative;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		padding: rem(10) rem(48);
+		margin-bottom: rem(12);
+
+		.swiper-container{
+
+		}
+		.swiper-wrapper{
+
+		}
+		.swiper-slide{
+			width: auto;
+		}
+
+		background-color: $primary;
+		min-height: rem(48);
+		border-radius: rem(24);
+
+		&:before,
+		&:after{
+			@include mt();
+			content: '';
+			z-index: 2;
+			position: absolute;
+			top: 0;
+			width: rem(84);
+			height: 100%;
+			pointer-events: none;
+		}
+		&:before{
+			left: 0;
+			background: linear-gradient(90deg, #287EFF 33.33%, rgba(40, 126, 255, 0) 100%);
+		}
+		&:after{
+			right: 0;
+			background: linear-gradient(90deg, #287EFF 33.33%, rgba(40, 126, 255, 0) 100%);
+			transform: rotate(-180deg);
+		}
+
+		&.active{
+			padding: rem(24) rem(48);
+
+			.swiper-slide-duplicate{
+				display: none;
+			}
+			.swiper-wrapper{
+				transform: none!important;
+				flex-wrap: wrap!important;
+			}
+			.swiper-slide{
+				margin-bottom: rem(8);
+			}
+
+
+			&:before,
+			&:after{
+				opacity: 0;
+				width: 0;
+			}
+		}
+	}
+	.swiper-button-hand{
+		display: block;
+		&.hidden{
+			display: none;
+		}
+
+	}
+
+	&__tag{
+		display: block;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: rem(14);
+		line-height: (17/14);
+
+		color: $white;
+		&:hover{
+			color: $cyan;
+		}
+	}
+
+	//
+	&__close-btn{
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 20;
+		width: rem(48);
+		height: rem(48);
+		border-radius: 50%;
+
+		@extend .btn;
+		@extend .btn-info;
+
+		display: none;
+		&.active{
+			display: block;
+		}
+
+		.icon{
+			font-size: 16px;
+			stroke: $white;
+			stroke-width: 2px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-50%) translateX(-50%);
+		}
+	}
+	&__show-all{
+		cursor: pointer;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+		span:first-child{
+			display: inline;
+		}
+		span:last-child{
+			display: none;
+		}
+		&.active{
+			span:first-child{
+				display: none;
+			}
+			span:last-child{
+				display: inline;
+			}
+
+			&:before{
+				transform: rotateX(180deg);
+			}
+		}
+
+		&:before{
+			@include mt();
+			content: '';
+			width: rem(12);
+			height: rem(12);
+			margin-right: rem(8);
+
+			background-image: url(../img/svg/chevron-down.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+
+		font-weight: bold;
+		font-size: rem(14);
+		line-height: (24/14);
+
+		color: $primary;
+	}
+	&__{}
+	&__{}
+	&__{}
+} // end.sTags

@@ -1,0 +1,61 @@
+mixin sCalc(data)
+	// start sCalc
+	+b.SECTION.sCalc.section#sCalc&attributes(attributes)
+		+e.container.container
+			+b.section-title.text-center
+				h2 Расчёт стоимости ремонта
+			+form-wrap()
+				+e.top-items
+					+sCalcItem('Категория')
+						+input('', 'select')
+					+sCalcItem('Марка')
+						+input('', 'select')
+					+sCalcItem('Модель')
+						+input('', 'select')
+					+sCalcItem(`Характер неисправности`)
+						+input('', 'select')
+					+sCalcItem(`Доставка в сервисный центр`)
+						+e.LABEL.bool-chb
+							input(type="checkbox" class="invisible")(checked)
+							+b.bool-btn--yes Да
+							+b.bool-btn--no Нет
+				+e.pre-price.text-md-end
+					+e.p-txt Предварительная оценка
+					+e.p-val — 11 900 руб.
+				+e.row--sm-txt.row
+					+e.sm-txt-col.col-md-9.ms-auto
+						| Укажите своё имя и телефон, и наш специалист свяжется
+						|
+						br.d-lg-block.d-none
+						| с вами для точной оценки работ и ремонта холодильника исходя из введенных вами данных!
+				+e.bot-items
+					+sCalcItem(`Имя`)
+						+input('', 'text')
+					+sCalcItem(`Телефон`)
+						+input('', 'tel')
+				+e.row--policy.row
+					.col-md-9.ms-auto
+						+e.policy
+							+e.p-row.row
+								.col-auto
+									+squareChb()(checked)
+								.col
+									+e.policy-txt
+										| Я даю согласие на обработку моих персональных данных, в соответствии
+										br
+										| с Федеральным законом от 27.07.2006 г. №152-ФЗ «О персональных данных»
+						+e.btn(type="submit") Оставить заявку
+	// end sCalc
+
+mixin squareChb()
+	+b.LABEL.sq-chb
+		input(type="checkbox" class="invisible")&attributes(attributes)
+		.square
+
+mixin sCalcItem(title)
+	+e.item
+		+e.row.row.align-items-center
+			.col-md-3
+				+e.title!=title
+			.col-md
+				block

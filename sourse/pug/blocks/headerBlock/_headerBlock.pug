@@ -1,10 +1,27 @@
 mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.section#headerBlock&attributes(attributes)
+		+e.bg
+			img(loading="lazy" src="img/@2x/headerBlock-bg.jpg" alt="")
 		.container
-			+b.section-title.text-center
-				h2 headerBlock ds dfsdfdsfsd
-
-			.row
-						
+			+e.row.row
+				+headerBlockItem(1,'blue')
+					| Диагностика
+					br
+					| бесплатно
+				+headerBlockItem(2,'blue')
+					| До 30% скидки
+					br
+					| на ремонт
+				+headerBlockItem(3,'green')
+					| 20% скидки
+					br
+					| на запчасти
 	// end headerBlock
+mixin headerBlockItem(imgNum, addClasses='blue')
+	.col-lg-4
+		+e.item(href="#" class=addClasses)
+			+e.img
+				img(loading="lazy" src=`img/@2x/headerBlock-${imgNum}.jpg` alt="")
+			+e.txt
+				block

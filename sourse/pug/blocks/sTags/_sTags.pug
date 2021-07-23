@@ -1,0 +1,27 @@
+mixin sTags(data)
+	// start sTags
+	+b.sTags#sTags&attributes(attributes)
+		.container
+			+e.slider-wrap.sTags-slider-wrap-js
+				.swiper-container.sTags-slider-js
+					.swiper-wrapper
+						-for(var i=0; i < 2; i++)
+							+sTagsSlide('Электроинструмент')
+							+sTagsSlide('Опрыскиватели и распылители')
+							+sTagsSlide('Пылесосы')
+							+sTagsSlide('Инструмент для работы в лесу')
+							+sTagsSlide('Цепные')
+							+sTagsSlide('Опрыскиватели и распылители')
+							+sTagsSlide('Пылесосы')
+							+sTagsSlide('Инструмент для работы в лесу')
+				+arrow()
+				+e.close-btn.sTags-close-btn-js
+					+icon('cross')
+			+e.show-all.sTags-show-btn-js
+				span Показать все
+				span Скрыть
+	// end sTags
+
+mixin sTagsSlide(tagTxt)
+	.swiper-slide
+		+e.tag(href='#')=tagTxt

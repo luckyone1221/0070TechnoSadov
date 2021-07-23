@@ -125,6 +125,16 @@ body {
 
 .section-title {
 	padding-bottom: var(--sTPB);
+
+	h1{
+		line-height: (59/48);
+	}
+	h1{
+		line-height: (44/36);
+	}
+	& > *:last-child{
+		margin-bottom: 0;
+	}
 }
 
 
@@ -291,42 +301,41 @@ ul {
 }
 
 .swiper-button-hand {
-	width: var(--swiperArrowSize);
-	height: var(--swiperArrowSize);
+	@include mt();
+	width: rem(48);
+	height: rem(48);
 	border-radius: 50%;
-	background-color: var(--swiperBgDef);
-	border: 2px solid var(--swiperBorderColorDef);
-	color: var(--swiperColorDef);
-	@include bgs;
-	z-index: 300;
-	outline: none !important;
-	// margin-bottom: 0;
-	background-image: none;
-	margin: 0;
-	@include a-cent(y);
-	box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
-	@include mt;
-	user-select: none;
 
-	&:hover {
-		background-color: var(--swiperBgDefHover);
-		border-color: var(--swiperBorderColorDefHover);
-		color: var(--swiperColorDefHover);
+	background-color: $primary;
+	&:hover{
+		background-color: $cyan;
 	}
+
+	display: block;
+	cursor: pointer;
 
 	.icon {
 		font-size: rem(12);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+		color: $white;
 	}
 
 	&::after {
-		display: none;
-	} 
-	&-next {
-		right: var(--swiperArrowPosition);
+		content: none;
 	}
 
-	&-prev {
-		left: var(--swiperArrowPosition);
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	transform: translateY(-50%);
+	&-prev{
+		left: -1px;
+	}
+	&-next{
+		right: -1px;
 	}
 }
 
@@ -488,4 +497,173 @@ iframe {
 
 ::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 24 24'><path fill='#{$primary}' d='M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z'/></svg>"); 
+}
+
+//
+.accept-ratio-frame {
+	display: block;
+	width: 100%;
+	height: 0;
+	position: relative;
+
+	overflow: hidden;
+	&:hover {
+		img {
+			//filter: brightness(100%);
+		}
+	}
+
+	img {
+		@include mt();
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+.accept-ratio-frame-nh {
+	display: block;
+	width: 100%;
+	height: 0;
+	position: relative;
+	overflow: hidden;
+
+	img {
+		@include mt();
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+
+//
+.form-select{
+	background-image: url(../img/svg/select-chevron-down.svg);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position-x: calc(100% - 25px);
+	background-position-y: center;
+	padding-right: rem(50);
+}
+//
+.btn-info{
+	color: $white!important;
+}
+
+//breadcrumb
+.breadcrumb{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
+	list-style: none;
+	padding: 0;
+	margin: rem(24) 0;
+
+	&-item{
+		margin-bottom: rem(8);
+
+		a{
+			font-size: rem(14);
+			line-height: (24/14);
+
+			display: flex;
+			align-items: center;
+			text-align: center;
+			text-decoration: none;
+
+			color: $blue3;
+			&:hover{
+				color: $primary;
+			}
+			&:after{
+				content: '—';
+				margin: 0 rem(24);
+				font-size: rem(14);
+				line-height: (24/14);
+				color: $blue3;
+			}
+		}
+
+		//
+		&:last-child{
+			a{
+				color: $blue;
+				&:after{
+					content: none;
+				}
+			}
+		}
+
+		//
+	}
+}
+
+//
+.page-head{
+	padding-bottom: rem(60);
+	@include media-breakpoint-up(md){
+		padding-bottom: rem(72);
+	}
+	@include media-breakpoint-up(xl){
+		padding-bottom: rem(96);
+	}
+	//
+	&__title-row{
+		padding-bottom: rem(48);
+	}
+	&__row{
+		--bs-gutter-x: #{rem(24)};
+		--bs-gutter-y: #{rem(36)};
+	}
+	&__sidebar-col{
+		position: relative;
+		z-index: 1;
+	}
+	&__sidebar{
+		position: sticky;
+		top: 0;
+		left: 0;
+	}
+	&__s-item{
+		@include mt();
+		display: block;
+		text-decoration: none;
+
+		border: 1px solid $gray-500;
+		background: $white;
+		padding: rem(11) rem(23);
+		margin-bottom: -1px;
+
+
+		position: relative;
+		z-index: 1;
+		font-size: rem(14);
+		line-height: (17/14);
+		color: $body-color;
+
+		&:hover{
+			color: $body-color;
+			border-color: $primary;
+			z-index: 2;
+		}
+		&.active{
+			background-color: $primary;
+			color: $white;
+		}
+
+		&:first-child{
+			border-radius: rem(8) rem(8) 0 0;
+		}
+		&:last-child{
+			border-radius: 0 0 rem(8) rem(8);
+		}
+	}
+	&__{}
+	&__{}
 }

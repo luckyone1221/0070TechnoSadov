@@ -3,6 +3,12 @@ extends layout/main.pug
 
 include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug
+include ../blocks/sRepair/_sRepair.pug
+include ../blocks/sBrends/_sBrends.pug
+include ../blocks/sCalc/_sCalc.pug
+include ../blocks/sSeo/_sSeo.pug
+include ../blocks/sCerts/_sCerts.pug
+include ../blocks/sMap/_sMap.pug
 
 block variables
 	- let  mainPage= null 
@@ -18,7 +24,10 @@ block pagecontent
 		+top-nav()
 		+bot-nav()
 	+headerBlock()
+	+sRepair()
+	+sBrends()
+	+sCalc()
+	+sSeo()
+	+sCerts()
+	+sMap()
 	+footer()
-
-
-
