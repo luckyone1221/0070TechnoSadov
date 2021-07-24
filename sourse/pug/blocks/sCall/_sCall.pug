@@ -1,0 +1,37 @@
+mixin sCall(data)
+	// start sCall
+	+b.SECTION.sCalc--call.section#sCall&attributes(attributes)
+		+e.container.container
+			+b.section-title.text-center
+				h2 Вызов мастера
+			+form-wrap()
+				+e.items--call
+					+sCalcItem(`Имя`)
+						+input('', 'text')
+					+sCalcItem(`Телефон`)
+						+input('', 'text')
+					+sCalcItem(`Почта`)
+						+input('', 'text')
+					+sCalcItem(``)
+						+input('', 'text')
+					+sCalcItem(`Доставка в сервисный центр`)
+						+e.LABEL.bool-chb
+							input(type="checkbox" class="invisible")(checked)
+							+b.bool-btn--yes Да
+							+b.bool-btn--no Нет
+					+sCalcItem(`Характер неисправности`)
+						+input('', 'textarea')
+				+e.row--policy.row
+					.col-md-9.ms-auto
+						+e.policy
+							+e.p-row.row
+								.col-auto
+									+squareChb()(checked)
+								.col
+									+e.policy-txt
+										| Я даю согласие на обработку моих персональных данных, в соответствии
+										br
+										| с Федеральным законом от 27.07.2006 г. №152-ФЗ «О персональных данных»
+						+e.btn(type="submit") Оставить заявку
+
+	// end sCall

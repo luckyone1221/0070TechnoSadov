@@ -10,7 +10,7 @@
 	height: 100%;
 	background-position: center 0;
 	opacity: 0;
-	//opacity: 0.7;
+	opacity: 0.7;
 } 
 
 body,
@@ -563,7 +563,7 @@ iframe {
 
 	list-style: none;
 	padding: 0;
-	margin: rem(24) 0;
+	margin: rem(24) 0 rem(7);
 
 	&-item{
 		margin-bottom: rem(8);
@@ -615,7 +615,7 @@ iframe {
 	}
 	//
 	&__title-row{
-		padding-bottom: rem(48);
+		padding-bottom: rem(36);
 	}
 	&__row{
 		--bs-gutter-x: #{rem(24)};
@@ -637,7 +637,7 @@ iframe {
 
 		border: 1px solid $gray-500;
 		background: $white;
-		padding: rem(11) rem(23);
+		padding: rem(15) rem(23);
 		margin-bottom: -1px;
 
 

@@ -10,6 +10,8 @@ include ../blocks/sSeo/_sSeo.pug
 include ../blocks/sCerts/_sCerts.pug
 include ../blocks/sMap/_sMap.pug
 include ../blocks/sTags/_sTags.pug
+include ../blocks/sUsefull/_sUsefull.pug
+include ../blocks/sCall/_sCall.pug
 
 block variables
 	- let  mainPage= null 
@@ -50,4 +52,6 @@ block pagecontent
 						+e.s-item(href="#") Ремонт мотоблоков
 				.col-lg-9
 					+sTags()
+					+sUsefull()
+					+sCall()
 	+footer()

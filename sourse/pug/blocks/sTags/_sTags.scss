@@ -1,5 +1,8 @@
 // start .sTags
 .sTags {
+	--sPT: #{rem(24)};
+	--sPB: #{rem(24)};
+	--sTPB: #{rem(48)};
 
 	&__slider-wrap{
 		position: relative;
@@ -106,7 +109,7 @@
 		}
 
 		.icon{
-			font-size: 16px;
+			font-size: rem(16);
 			stroke: $white;
 			stroke-width: 2px;
 			position: absolute;
@@ -117,6 +120,7 @@
 	}
 	&__show-all{
 		cursor: pointer;
+		margin-bottom: rem(38);
 
 		display: flex;
 		align-items: center;
@@ -160,6 +164,29 @@
 		line-height: (24/14);
 
 		color: $primary;
+	}
+
+	//
+	&__txt-box{
+		& > *:last-child{
+			margin-bottom: 0;
+		}
+
+		margin-bottom: rem(24);
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__img-row{
+		--bs-gutter-x: #{rem(24)};
+		--bs-gutter-y: #{rem(24)};
+
+		padding-bottom: rem(24);
+	}
+	&__img{
+		@extend .accept-ratio-frame-nh;
+		padding-top: (192/300) * 100%;
+		border-radius: rem(8);
 	}
 	&__{}
 	&__{}

@@ -1,0 +1,34 @@
+mixin sUsefull(data)
+	// start sUsefull
+	+b.SECTION.sUsefull.section#sUsefull&attributes(attributes)
+		+b.section-title
+			+e.row.row.align-items-end
+				.col-sm
+					h2 Полезная информация
+				.col-sm-auto
+					+e.all-link(href="#") Все статьи
+		+e.row.row
+			+sUsefullArticle(1, 'Основные неисправности бензогенераторов')
+			+sUsefullArticle(2, 'Капитальный ремонт двигателя бензогенератора')
+			+sUsefullArticle(3, 'Длительное хранение бензогенератора (консервация)')
+	// end sUsefull
+
+mixin sUsefullArticle(imgNum, title)
+	.col-md-4
+		+e.item
+			+e.img(href="#")
+				img(loading="lazy" src=`img/@2x/sUsefull-${imgNum}.jpg` alt="")
+			+e.content
+				+e.title(href="#")!=title
+				+e.f-row.row.align-items-center
+					.col
+						+e.date 13.08.19
+					.col-auto
+						+sUsefullIconed('eye', '45')
+					.col-auto
+						+sUsefullIconed('share', '18')
+
+mixin sUsefullIconed(iconName, num)
+	+e.iconed
+		+icon(iconName)
+		+e.num=num
