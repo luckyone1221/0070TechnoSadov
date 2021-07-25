@@ -1,0 +1,21 @@
+mixin sAny(data)
+	// start sAny
+	+b.SECTION.sAny.section#sAny&attributes(attributes)
+		.container.p-0
+			+b.section-title
+				h2 Мы ремонтируем любую технику Stihl
+			+e.row.row
+				+sAnyItem(1, 'Подметальные машины')
+				+sAnyItem(2, 'Резчики')
+				+sAnyItem(3, 'Культиваторы')
+				+sAnyItem(4, 'Садовые трактора')
+				+sAnyItem(5, `Опрыскиватели <br> и распылители`)
+				+sAnyItem(6, 'Бензобуры')
+	// end sAny
+
+mixin sAnyItem(imgNum, title)
+	.col-6.col-md-4
+		+e.item(href="#")
+			+e.img
+				img(loading="lazy" src=`img/@2x/sAny-${imgNum}.jpg` alt="")
+			+e.title!=title

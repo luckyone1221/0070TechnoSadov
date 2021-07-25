@@ -1,15 +1,228 @@
 // start .sMap
 .sMap {
 	--sPT: #{rem(36)};
-	--sPB: #{rem(0)};
+	--sPB: 0;
 	--sTPB: #{rem(50)};
 
-	&__img-stab{
-		@extend .accept-ratio-frame-nh;
+	.section-title{
+		text-align: center;
+	}
 
-		min-height: rem(400);
-		@include media-breakpoint-up(sm){
-			min-height: rem(600);
+	&--in-box{
+		--sPT: #{rem(78)};
+		--sTPB: #{rem(24)};
+		.container{
+			padding: 0;
+		}
+		.section-title{
+			text-align: left;
+		}
+		.sMap__map-cont {
+			@include media-breakpoint-up(lg){
+				position: relative;
+				border-radius: rem(8);
+				overflow: hidden;
+			}
+
+			@include media-breakpoint-between(lg, xl) {
+				width: 100%;
+				left: unset;
+			}
+		}
+
+		.sMap____map{
+			@include media-breakpoint-up(xl){
+				width: 100%;
+				left: unset;
+			}
+
 		}
 	}
+	&--last-section{
+		margin-bottom: calc(-1 * var(--page-head-pb));
+		@include media-breakpoint-up(md){
+			margin-bottom: 0;
+		}
+
+	}
+
+	&__container{
+
+	}
+	&__map-cont{
+		position: relative;
+		@include media-breakpoint-down(xl){
+			position: relative;
+			width: 100vw;
+			left: calc(-1 * (100vw - 100%) / 2);
+		}
+	}
+	&__map{
+		position: relative;
+		z-index: 1;
+
+		height: rem(400);
+		@include media-breakpoint-up(md){
+			height: rem(600);
+		}
+		@include media-breakpoint-up(xl){
+			width: 100vw;
+			left: calc(-1 * (100vw - 100%) / 2);
+		}
+
+		& > *{
+			position: absolute!important;
+			z-index: -1!important;
+			top: 0!important;
+			left: 0!important;
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
+	&__stab-img{
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__map-pp{
+		width: 100%;
+		@include media-breakpoint-up(md){
+			width: rem(300);
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			height: 100%;
+		}
+		background-color: $primary;
+		color: $white;
+
+		display: flex;
+		flex-direction: column;
+		@include media-breakpoint-between(sm,md){
+			flex-direction: row;
+		}
+	}
+	&__img-block{
+		min-height: rem(192);
+		padding: rem(24);
+
+		@include media-breakpoint-between(sm,md){
+			width: 40%;
+		}
+
+		position: relative;
+		z-index: 1;
+	}
+	&__bg{
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 62.5%);
+		}
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__hide{
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+
+		&:before{
+			content: '';
+			flex-shrink: 0;
+			display: inline-block;
+			width: rem(10);
+			height: rem(10);
+			margin-right: rem(8);
+
+			background-image: url(../img/svg/chevron-left.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+	}
+	&__blue-box{
+		padding: rem(24);
+		flex-grow: 1;
+
+		display: flex;
+		flex-direction: column;
+	}
+	&__name{
+		display: block;
+		text-decoration: none;
+		margin-bottom: rem(23);
+
+		font-weight: bold;
+		font-size: 24px;
+		line-height: 1.5;
+		color: $white;
+		&:hover{
+			color: $cyan;
+		}
+	}
+	&__title{
+		font-weight: bold;
+		font-size: rem(12);
+		padding: rem(3) 0;
+		line-height: 1.5;
+		letter-spacing: rem(1.4);
+		text-transform: uppercase;
+	}
+	&__addres{
+		font-weight: bold;
+		font-size: rem(14);
+		line-height: (24/14);
+		margin-bottom: rem(24);
+	}
+	&__shedule-wrap{
+		margin-bottom: rem(24);
+	}
+	&__shedule-item{
+		font-weight: bold;
+		font-size: rem(14);
+		line-height: (24/14);
+
+		display: flex;
+		align-items: center;
+	}
+	&__days{
+		display: inline-flex;
+		align-items: center;
+
+		&:after{
+			content: '—';
+			margin: 0 rem(12);
+		}
+	}
+	&__val{
+
+	}
+	//
+	&__btn{
+		@extend .btn-cyan;
+		width: 100%;
+		margin-top: auto;
+	}
+	&__{}
+	&__{}
 } // end.sMap

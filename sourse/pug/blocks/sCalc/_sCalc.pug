@@ -3,7 +3,7 @@ mixin sCalc(data)
 	+b.SECTION.sCalc.section#sCalc&attributes(attributes)
 		+e.container.container
 			+b.section-title.text-center
-				h2 Расчёт стоимости ремонта
+				h2=data.title
 			+form-wrap()
 				+e.top-items
 					+sCalcItem('Категория')
@@ -16,14 +16,14 @@ mixin sCalc(data)
 						+input('', 'select')
 					+sCalcItem(`Доставка в сервисный центр`)
 						+e.LABEL.bool-chb
-							input(type="checkbox" class="invisible")(checked)
+							input(type="checkbox" class="invisible" checked)
 							+b.bool-btn--yes Да
 							+b.bool-btn--no Нет
 				+e.pre-price.text-md-end
 					+e.p-txt Предварительная оценка
 					+e.p-val — 11 900 руб.
 				+e.row--sm-txt.row
-					+e.sm-txt-col.col-md-9.ms-auto
+					+e.right-col.col-md-9.ms-auto
 						| Укажите своё имя и телефон, и наш специалист свяжется
 						|
 						br.d-lg-block.d-none
@@ -34,7 +34,7 @@ mixin sCalc(data)
 					+sCalcItem(`Телефон`)
 						+input('', 'tel')
 				+e.row--policy.row
-					.col-md-9.ms-auto
+					+e.right-col.col-md-9.ms-auto
 						+e.policy
 							+e.p-row.row
 								.col-auto
@@ -44,7 +44,8 @@ mixin sCalc(data)
 										| Я даю согласие на обработку моих персональных данных, в соответствии
 										br
 										| с Федеральным законом от 27.07.2006 г. №152-ФЗ «О персональных данных»
-						+e.btn(type="submit") Оставить заявку
+						+e.btn-cont
+							+e.btn(type="submit") Оставить заявку
 	// end sCalc
 
 mixin squareChb()
@@ -55,7 +56,7 @@ mixin squareChb()
 mixin sCalcItem(title)
 	+e.item
 		+e.row.row
-			.col-md-3
+			+e.left-col.col-md-3
 				+e.title!=title
-			.col-md
+			+e.right-col.col-md
 				block

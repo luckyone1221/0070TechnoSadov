@@ -1,0 +1,24 @@
+mixin sInstructions(data)
+	// start sInstructions
+	+b.SECTION.sInstructions.section#sInstructions&attributes(attributes)
+		.container.p-0
+			+b.section-title
+				h2 Инструкции по ремонту бензиновых генераторов Stihl
+			+e.table
+				+sInstructionsItem('Руководство по ремонту HUSQVARNA: 340, 345, 346XP, 350, 351, 353')
+				+sInstructionsItem('Руководство по ремонту  HUSQVARNA: 362XP, 365, 372X')
+				+sInstructionsItem('Руководство к HUSQVARNA: 242-394')
+				+sInstructionsItem('Руководство к HUSQVARNA: 242-394')
+	// end sInstructions
+
+mixin sInstructionsItem(name)
+	+e.item(href='#')
+		+e.i-row.row.d-flex.align-items-center
+			.col-auto.d-block
+				+e.img
+					img(loading="lazy" src="img/svg/sPrice-pdf.svg" alt="")
+			.col.d-block
+				+e.name=name
+			.col-auto.d-block
+				+e.ball
+					img(loading='lazy' src="img/svg/arrow-down.svg" alt="")

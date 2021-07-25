@@ -1,0 +1,47 @@
+mixin sPrice(data)
+	// start sPrice
+	+b.SECTION.sPrice.section#sPrice&attributes(attributes)
+		.container.p-0
+			+b.section-title
+				h2=data.title
+			+e.table
+				+e.t-head Вид работ
+				+e.t-body.sPrice-t-body-js
+					+sPriceTableRow('Замена масла (с маслом)', '1 500 ₽')
+					+sPriceTableRow('Регулировка оборотов двигателя', '2 800 ₽')
+					+sPriceTableRow('Регулировка клапанов за 1 цилиндр', '3 100 ₽')
+					+sPriceTableRow('Регулировка механического регулятора, со снятием бака', '700 ₽')
+					+sPriceTableRow('Замена щеток', '5 000 ₽')
+					+sPriceTableRow('Ремонт карбюратора', '300 ₽')
+					+sPriceTableRow('Чистка бака, со снятием', '3 700 ₽')
+					//-
+					+sPriceTableRow('Замена масла (с маслом)', '1 500 ₽')
+					+sPriceTableRow('Регулировка оборотов двигателя', '2 800 ₽')
+					+sPriceTableRow('Регулировка клапанов за 1 цилиндр', '3 100 ₽')
+					+sPriceTableRow('Регулировка механического регулятора, со снятием бака', '700 ₽')
+					+sPriceTableRow('Замена щеток', '5 000 ₽')
+					+sPriceTableRow('Ремонт карбюратора', '300 ₽')
+					+sPriceTableRow('Чистка бака, со снятием', '3 700 ₽')
+				+e.t-foot.sPrice-show-hide-js
+					span Показать все
+					span Скрыть
+			+e.download-row.row
+				+sPriceDownloadItem('doc')
+				+sPriceDownloadItem('pdf')
+	// end sPrice
+mixin sPriceDownloadItem(imgName)
+	+e.d-col.col-md-6
+		+e.sub-row.row.align-items-center
+			.col-auto
+				+e.img
+					img(loading="lazy" src=`img/svg/sPrice-${imgName}.svg` alt="")
+			+e.txt-col.col Прайс-лист на  услуги по ремонту бензиновых генераторов
+			.col-auto
+				+e.ball(href="#")
+					img(loading="lazy" src="img/svg/arrow-down.svg" alt="")
+
+mixin sPriceTableRow(key, val)
+	+e.t-item
+		+e.table-row.row
+			+e.key-col.col-sm=key
+			+e.val-col.col-sm-auto=val

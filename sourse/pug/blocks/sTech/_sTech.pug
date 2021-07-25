@@ -1,0 +1,17 @@
+mixin sTech(data)
+	// start sTech
+	+b.SECTION.sTech.section#sTech&attributes(attributes)
+		.container.p-0
+			+e.box
+				+e.bg
+					img(loading="lazy" src=`img/@2x/sTech-bg-alt.jpg` alt="")
+				+e.row.row.align-items-center
+					.col-sm-auto
+						+e.gear
+							img(loading="lazy" src=`img/svg/sTech-gear.svg` alt="")
+					.col-sm
+						+e.title
+							h2 Техническое обслуживание бензиновых генераторов
+					.col-md-auto
+						+e.btn(href="#") подробнее
+	// end sTech

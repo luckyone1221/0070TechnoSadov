@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta charset="utf-8">
-		<title>title</title>
+		<title>index</title>
 		<meta name="description" content="о чем страница">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,  shrink-to-fit=no">
@@ -314,11 +314,11 @@
 							<div class="form-wrap__top-items">
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Категория
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<div class="form-wrap__input-wrap form-group">
 												<select class="form-wrap__input form-select" name="select">
 													<option value=""></option>
@@ -334,11 +334,11 @@
 								</div>
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Марка
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<div class="form-wrap__input-wrap form-group">
 												<select class="form-wrap__input form-select" name="select">
 													<option value=""></option>
@@ -354,11 +354,11 @@
 								</div>
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Модель
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<div class="form-wrap__input-wrap form-group">
 												<select class="form-wrap__input form-select" name="select">
 													<option value=""></option>
@@ -374,11 +374,11 @@
 								</div>
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Характер неисправности
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<div class="form-wrap__input-wrap form-group">
 												<select class="form-wrap__input form-select" name="select">
 													<option value=""></option>
@@ -394,11 +394,11 @@
 								</div>
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Доставка в сервисный центр
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<label class="form-wrap__bool-chb">
 												<input class="invisible" type="checkbox" checked="checked"/><span class="bool-btn bool-btn--yes">Да</span><span class="bool-btn bool-btn--no">Нет</span>
 											</label>
@@ -413,7 +413,7 @@
 								</div>
 							</div>
 							<div class="form-wrap__row form-wrap__row--sm-txt row">
-								<div class="form-wrap__sm-txt-col col-md-9 ms-auto">
+								<div class="form-wrap__right-col col-md-9 ms-auto">
 									Укажите своё имя и телефон, и наш специалист свяжется
 									<br class="d-lg-block d-none"/>с вами для точной оценки работ и ремонта холодильника исходя из введенных вами данных!
 								</div>
@@ -421,11 +421,11 @@
 							<div class="form-wrap__bot-items">
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Имя
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="text" type="text" placeholder=""/>
 											</div>
 											<!-- +e.input-wrap-->
@@ -434,11 +434,11 @@
 								</div>
 								<div class="form-wrap__item">
 									<div class="form-wrap__row row">
-										<div class="col-md-3">
+										<div class="form-wrap__left-col col-md-3">
 											<div class="form-wrap__title">Телефон
 											</div>
 										</div>
-										<div class="col-md">
+										<div class="form-wrap__right-col col-md">
 											<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="tel" type="tel" placeholder=""/>
 											</div>
 											<!-- +e.input-wrap-->
@@ -447,7 +447,7 @@
 								</div>
 							</div>
 							<div class="form-wrap__row form-wrap__row--policy row">
-								<div class="col-md-9 ms-auto">
+								<div class="form-wrap__right-col col-md-9 ms-auto">
 									<div class="form-wrap__policy">
 										<div class="form-wrap__p-row row">
 											<div class="col-auto">
@@ -462,8 +462,10 @@
 											</div>
 										</div>
 									</div>
-									<button class="form-wrap__btn" type="submit">Оставить заявку
-									</button>
+									<div class="form-wrap__btn-cont">
+										<button class="form-wrap__btn" type="submit">Оставить заявку
+										</button>
+									</div>
 								</div>
 							</div>
 						</form>
@@ -525,12 +527,46 @@
 			<!-- end sCerts-->
 			<!-- start sMap-->
 			<section class="sMap section" id="sMap">
-				<div class="container">
-					<div class="section-title text-center">
+				<div class="sMap__container container">
+					<div class="section-title">
 						<h2>Сервисные центры</h2>
 					</div>
-				</div>
-				<div class="sMap__img-stab"><img loading="lazy" src="img/@2x/sMap-stab.png" alt=""/>
+					<div class="sMap__map-cont">
+						<div class="sMap__map">
+							<div class="sMap__stab-img"><img loading="lazy" src="img/@2x/sMap-stab.png" alt=""/>
+							</div>
+						</div>
+						<div class="sMap__map-pp">
+							<div class="sMap__img-block">
+								<div class="sMap__bg"><img loading="lazy" src="img/@2x/sMap-pp-img.jpg" alt=""/>
+								</div>
+								<div class="sMap__hide">Скрыть
+								</div>
+							</div>
+							<div class="sMap__blue-box"><a class="sMap__name" href="#">Сервисный центр Stihl</a>
+								<div class="sMap__title">Адрес
+								</div>
+								<div class="sMap__addres">Паустовского ул., 4
+								</div>
+								<div class="sMap__title">Режим работы
+								</div>
+								<div class="sMap__shedule-wrap">
+									<div class="sMap__shedule-item">
+										<div class="sMap__days">Пн. - Пт.
+										</div>
+										<div class="sMap__val">с 9:00 до 19:00
+										</div>
+									</div>
+									<div class="sMap__shedule-item">
+										<div class="sMap__days">Пн. - Пт.
+										</div>
+										<div class="sMap__val">Выходной
+										</div>
+									</div>
+								</div><a class="sMap__btn" href="#">Оставить заявку</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 			<!-- end sMap-->

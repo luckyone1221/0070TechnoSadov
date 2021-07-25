@@ -1,0 +1,21 @@
+mixin sAlso(data)
+	// start sAlso
+	+b.SECTION.sAlso.section#sAlso&attributes(attributes)
+		.container.p-0
+			+b.section-title
+				h2 Так же мы выполняем
+			+e.row.row
+				+sAlsoItem(1, 'Ремонт газовых генераторов')
+				+sAlsoItem(2, 'Ремонт дизельных генераторов')
+				+sAlsoItem(3, 'Ремонт инверторных генераторов')
+				+sAlsoItem(4, 'Ремонт сварочныхных генераторов')
+	// end sAlso
+
+mixin sAlsoItem(imgNum, name)
+	.col-md-6
+		+e.item(href="#")
+			+e.item-row.row.align-items-center.d-flex
+				.col-auto.d-block
+					+e.img
+						img(loading="lazy" src=`img/@2x/sAlso-${imgNum}.png` alt="")
+				+e.name-col.col.d-block=name

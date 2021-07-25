@@ -12,13 +12,15 @@ include ../blocks/sMap/_sMap.pug
 include ../blocks/sTags/_sTags.pug
 include ../blocks/sUsefull/_sUsefull.pug
 include ../blocks/sCall/_sCall.pug
+include ../blocks/sTech/_sTech.pug
+include ../blocks/sPrice/_sPrice.pug
 
 block variables
 	- let  mainPage= null 
 	- let  bg= '01.png'
 
 block title
-	- let  title= 'title'
+	- let  title= '01-types'
 	title= title
 block pagecontent
 	+mob-mnu()
@@ -54,4 +56,20 @@ block pagecontent
 					+sTags()
 					+sUsefull()
 					+sCall()
+					+sBrends({
+						addClasses: 'sBrends--inBox',
+						addContClasses: 'p-0',
+						title: 'Производители бензиновых генераторов',
+					})
+					+sTech()
+					+sPrice({
+						title: 'Cтоимость ремонта бензиновых генераторов Stihl',
+					})
+					+sCalc({
+						title: 'Расчёт стоимости ремонта',
+					})(class="sCalc--gray")
+					+sMap({
+						addClasses: 'sMap--in-box sMap--last-section',
+						title: 'Сервисные центры Stihl',
+					})
 	+footer()

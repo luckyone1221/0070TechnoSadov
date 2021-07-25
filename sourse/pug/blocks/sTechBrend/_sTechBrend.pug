@@ -1,0 +1,17 @@
+mixin sTechBrend(data)
+	// start sTechBrend
+	+b.SECTION.sTechBrend.section#sTechBrend&attributes(attributes)
+		.container.p-0
+			+e.box
+				+e.b-row.row
+					+e.brand-col.col-md-auto
+						img(loading="lazy" src="img/@2x/brend-img-tp.png" alt="")
+					+e.txt-col.col-md
+						+e.bg
+							img(loading="lazy" src=`img/@2x/sTech-bg-alt.jpg` alt="")
+						+e.sub-row.row.align-items-center
+							.col-md
+								+e.title Техническое обслуживание бензиновых генераторов Stihl
+							.col-md-auto
+								+e.btn(href="#") подробнее
+	// end sTechBrend

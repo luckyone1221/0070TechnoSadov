@@ -1,11 +1,32 @@
 mixin sMap(data)
 	// start sMap
-	+b.SECTION.sMap.section#sMap&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 Сервисные центры
-		+e.img-stab
-			img(loading="lazy" src=`img/@2x/sMap-stab.png` alt="")
-
-
+	+b.SECTION.sMap.section(class=data.addClasses)#sMap&attributes(attributes)
+		+e.container.container
+			if data.title
+				+b.section-title
+					h2=data.title
+			+e.map-cont
+				+e.map
+					//--delete this put map
+					+e.stab-img
+						img(loading="lazy" src=`img/@2x/sMap-stab.png` alt="")
+				+e.map-pp
+					+e.img-block
+						+e.bg
+							img(loading="lazy" src='img/@2x/sMap-pp-img.jpg' alt="")
+						+e.hide Скрыть
+						//-chevron-left
+					+e.blue-box
+						+e.name(href="#") Сервисный центр Stihl
+						+e.title Адрес
+						+e.addres Паустовского ул., 4
+						+e.title Режим работы
+						+e.shedule-wrap
+							+e.shedule-item
+								+e.days Пн. - Пт.
+								+e.val с 9:00 до 19:00
+							+e.shedule-item
+								+e.days Пн. - Пт.
+								+e.val Выходной
+						+e.btn(href="#") Оставить заявку
 	// end sMap

@@ -16,7 +16,7 @@ block variables
 	- let  bg= 'index.png'
 
 block title
-	- let  title= 'title'
+	- let  title= 'index'
 	title= title
 block pagecontent
 	+mob-mnu()
@@ -26,9 +26,17 @@ block pagecontent
 		+bot-nav()
 	+headerBlock()
 	+sRepair()
-	+sBrends()
-	+sCalc()
+	+sBrends({
+		addSectinTitleClasses: 'text-center',
+		title: 'Обслуживаемые марки',
+	})
+	+sCalc({
+		title: 'Расчёт стоимости ремонта',
+	})
 	+sSeo()
 	+sCerts()
-	+sMap()
+	+sMap({
+		addClasses: '',
+		title: 'Сервисные центры',
+	})
 	+footer()

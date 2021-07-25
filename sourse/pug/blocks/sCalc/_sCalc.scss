@@ -17,17 +17,55 @@
 		--sPT: #{rem(50)} !important;
 		--sPB: #{rem(48)} !important;
 		--sTPB: #{rem(26)} !important;
+	}
 
+	background-color: $primary;
+	color: $white;
+
+	&--gray{
+		color: $body-color;
+		background-color: $gray-310;
+
+		border-radius: rem(8);
+		--sPT: #{rem(50)} !important;
+		--sPB: #{rem(48)} !important;
+		--sTPB: #{rem(48)} !important;
+
+		.form-wrap__title{
+			font-weight: 500;
+		}
+		.form-wrap__btn-cont{
+			@include media-breakpoint-up(md){
+				text-align: end;
+			}
+		}
+
+		button.form-wrap__btn{
+			@include media-breakpoint-up(md){
+				margin-left: auto!important;
+				width: auto !important;
+			}
+		}
+	}
+
+	&--gray, &--call{
 		.container{
 			@include media-breakpoint-up(lg){
 				max-width: calc(750px + #{$container-padding-x} * 2) !important;
 			}
 		}
 
+		.form-wrap__left-col{
+			@include media-breakpoint-up(md){
+				width: 28.5% !important;
+			}
+		}
+		.form-wrap__right-col{
+			@include media-breakpoint-up(md){
+				width: 71.5% !important;
+			}
+		}
 	}
-
-	background-color: $primary;
-	color: $white;
 
 	&__container{
 		@include media-breakpoint-up(lg){
@@ -36,7 +74,7 @@
 	}
 	.section-title{
 		h2{
-			color: $white;
+			color: inherit;
 		}
 	}
 	.form-wrap{
@@ -74,7 +112,7 @@
 			font-weight: bold;
 			font-size: rem(16);
 			line-height: (20/16);
-			color: $white;
+			//color: $white;
 			min-height: rem(48);
 
 			display: flex;
@@ -141,9 +179,6 @@
 			line-height: (44/36);
 		}
 		//
-		&__sm-txt-col{
-			font-weight: 500;
-		}
 		&__bot-items{
 			margin-bottom: rem(16);
 		}
@@ -163,16 +198,10 @@
 		&__{}
 		//
 		&__btn{
-			@extend .btn;
-			@extend .btn-info;
+			@extend .btn-cyan;
 
-			font-weight: bold;
-			font-size: rem(14);
-			line-height: (24/14);
-			text-transform: uppercase;
-			letter-spacing: rem(1.4);
-			width: rem(300);
 			max-width: 100%;
+			width: rem(300);
 		}
 		//
 		&__{}

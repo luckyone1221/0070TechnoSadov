@@ -39,14 +39,17 @@ $gray-110: #FAFAFA;
 $gray-200: #e9ecef !default;
 $gray-220: #ECECEC;
 $gray-300: #dee2e6 !default;
+$gray-310: #F1F1F2;
 $gray-400: #ced4da !default;
 $gray-500: #DDDDDD;
+$gray-540: #F0F5FA;
 $gray-520: #BBBBBB;
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-710: #505769;
 $gray-800: #343a40 !default;
 $gray-900: #444444;
+$gray-930: #333333;
 $black: #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -102,7 +105,7 @@ $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: $gray-100 !default;
+$light: $gray-110;
 $dark: $gray-900 !default;
 // scss-docs-end theme-color-variables
 

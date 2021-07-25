@@ -4,6 +4,13 @@
 	--sPB: #{rem(24)};
 	--sTPB: #{rem(48)};
 
+	&--mb-72{
+		margin-bottom: rem(48);
+		@include media-breakpoint-up(xl){
+			margin-bottom: rem(72);
+		}
+	}
+
 	&__slider-wrap{
 		position: relative;
 		display: flex;

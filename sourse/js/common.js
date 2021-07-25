@@ -373,6 +373,11 @@ function eventHandler() {
 			$(this).removeClass('hidden');
 		})
 	})
+	//
+	//.sPrice-show-hide-js
+	$('.sPrice-show-hide-js').click(function (){
+		$('.sPrice-t-body-js, .sPrice-show-hide-js').toggleClass('active');
+	})
 
 	//
 

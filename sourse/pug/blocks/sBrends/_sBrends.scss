@@ -8,6 +8,21 @@
 	}
 	--sTPB: #{rem(50)};
 
+	&--inBox{
+		--sTPB: #{rem(28)};
+
+		--sPT: #{rem(48)};
+		--sPB: #{rem(32px)};
+		@include media-breakpoint-up(md){
+			--sPT: #{rem(75)};
+			--sPB: #{rem(32px)};
+		}
+
+		.sBrends__row{
+			--bs-gutter-x: #{rem(18)};
+			--bs-gutter-y: #{rem(18)};
+		}
+	}
 	.section-title{
 
 	}

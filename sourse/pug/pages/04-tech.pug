@@ -1,0 +1,74 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sRepair/_sRepair.pug
+include ../blocks/sBrends/_sBrends.pug
+include ../blocks/sCalc/_sCalc.pug
+include ../blocks/sSeo/_sSeo.pug
+include ../blocks/sCerts/_sCerts.pug
+include ../blocks/sMap/_sMap.pug
+include ../blocks/sTags/_sTags.pug
+include ../blocks/sUsefull/_sUsefull.pug
+include ../blocks/sCall/_sCall.pug
+include ../blocks/sTech/_sTech.pug
+include ../blocks/sPrice/_sPrice.pug
+include ../blocks/sTechBrend/_sTechBrend.pug
+include ../blocks/sInstructions/_sInstructions.pug
+include ../blocks/sAlso/_sAlso.pug
+include ../blocks/sAny/_sAny.pug
+
+
+block variables
+	- let  mainPage='bg-light'
+	- let  bg= '04.png'
+
+block title
+	- let  title= '04-tech'
+	title= title
+block pagecontent
+	+mob-mnu()
+	+header()
+		+topLine()
+		+top-nav()
+		+bot-nav()
+	+headerBlock()
+	+b.page-head
+		.container
+			+breadcrumb('Главная', 'Ремонт бензогенераторов', 'Ремонт бензогенераторов Stihl')
+			+e.title-row.row
+				.col-sm
+					+b.section-title.pb-0
+						h1
+							| Техническое обслуживание
+							br
+							| бензиновых генераторов
+			+e.row.row
+				+e.sidebar-col.col-lg-3
+					+e.sidebar
+						+e.s-item(href="#") Ремонт бензогенераторов
+						+e.s-item(href="#") Ремонт триммеров
+						+e.s-item(href="#") Ремонт бензопил
+						+e.s-item(href="#") Ремонт бензорезов
+						+e.s-item(href="#") Ремонт виброплит
+						+e.s-item(href="#") Ремонт газонокосилок
+						+e.s-item(href="#") Ремонт двигателей
+						+e.s-item(href="#") Ремонт культиваторов
+						+e.s-item(href="#") Ремонт лодочных моторов
+						+e.s-item(href="#") Ремонт мотоблоков
+				.col-lg-9
+					+sTags()(class="sTags--mb-72")
+					+sCall()(class="mb-4")
+					+sPrice({
+						title: 'Cтоимость технического обслуживания бензиновых генераторов',
+					})
+					//+sAny()
+					+sCalc({
+						title: 'Расчёт стоимости ТО',
+					})(class="sCalc--gray")
+					+sMap({
+						addClasses: 'sMap--in-box sMap--last-section',
+						title: 'Центры технического обслуживания бензиновых генераторов',
+					})
+	+footer()
