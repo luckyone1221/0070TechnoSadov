@@ -1,12 +1,15 @@
 .modal-win {
-	// display: block;
 	width: 100%;
 	position: relative;
 	max-width: rem(500);
 
-	.modal-content {
-		// max-width: 485px;
-		// padding-right: 40px 15px;
+	padding: rem(24) rem(16)!important;
+	@include media-breakpoint-up(sm){
+		padding: rem(24)!important;
+	}
+
+	&--big{
+		max-width: rem(1272);
 	}
 
 	.mfp-close {
@@ -14,115 +17,72 @@
 		font-size: 40px;
 		font-weight: 100;
 	}
-}
 
-a {
-	outline: 0 !important;
-}
-
-.modal-form {
-	position: relative;
-}
-
-#foot-dialog {
-	h3 {
-		font-size: em(36);
-	}
-}
-
-.mfp-close {
-	user-select: none; // width: 44px;
-	// height: 44px;
-	// line-height: 44px;
-	position: absolute;
-	right: 0;
-	top: 0;
-	text-decoration: none;
-	text-align: center;
-	opacity: .65; // padding: 0 0 18px 10px;
-	// color: #fff;
-	font-style: normal;
-	font-size: 28px;
-	font-family: Arial, Baskerville, monospace;
-	overflow: visible;
-	cursor: pointer;
-	background: 0 0;
-	border: 0;
-	display: block;
-	outline: 0;
-	padding: 0;
-	z-index: 1046;
-	box-shadow: none;
-	color: $body-color;
-	opacity: 1;
-	font-size: 50px;
-	font-weight: 100;
-	width: 56px;
-	height: 56px; // box-shadow: 0 10px $h2-font-size rgba(0, 0, 0, 0.15);
-	// background-color: #fff;
-	border-radius: 50%;
-	line-height: 56px;
-	text-align: center;
-	margin-top: -5px;
-	margin-right: -5px;
-	@include mt;
-
-	&:hover {
-		// background-color: #e3f3f6;
-	}
-}
-
-@include media-breakpoint-up(sm) {
-	.modal-text {
-		max-width: 1000px;
-	}
-}
-
-.polite {
-	.link {
-		color: $primary;
-		cursor: pointer;
-		text-decoration: underline;
-
-		:hover {
-			display: none;
+	//
+	.form-wrap{
+		&__row{
+			--bs-gutter-x: #{rem(24)};
+			--bs-gutter-y: #{rem(12)};
 		}
+		&__input-wrap{}
+		&__input{}
+		&__btn{
+			@extend .btn;
+			@extend .btn-primary;
+
+			font-weight: bold;
+			font-size: rem(14);
+			line-height: (24/14);
+			@include media-breakpoint-up(md){
+				min-width: rem(156);
+			}
+		}
+
+		&__options{
+			columns: 2;
+			@include media-breakpoint-up(sm){
+				columns: 2;
+			}
+			@include media-breakpoint-up(md){
+				columns: 3;
+			}
+			@include media-breakpoint-up(lg){
+				columns: 4;
+			}
+			@include media-breakpoint-up(xl){
+				columns: 5;
+			}
+			@include media-breakpoint-up(xxl){
+				columns: 6;
+			}
+			a{
+				display: block;
+				text-decoration: none;
+				font-weight: 500;
+
+				font-size: rem(13);
+				@media (min-width: 350px) {
+					font-size: rem(14);
+				}
+				line-height: (17/14);
+
+				margin-bottom: rem(5);
+				@include media-breakpoint-up(xxl){
+					margin-bottom: rem(11);
+				}
+
+				color: $blue2;
+				&:hover{
+					color: $primary;
+				}
+
+				&.active{
+					color: $primary;
+					text-shadow: 0 0 .7px rgba($primary, .8);
+				}
+			}
+		}
+		&__{}
 	}
+
 }
-
-
-// 
-@include media-breakpoint-up(xl) {}
-
-@include media-breakpoint-up(lg) {}
-
-@include media-breakpoint-up(md) {}
-
-@include media-breakpoint-up(sm) {}
-
-@include media-breakpoint-up(xs) {}
-
-// 
-@include media-breakpoint-between(md, xl) {}
-
-// 
-@include media-breakpoint-only(xs) {}
-
-@include media-breakpoint-only(sm) {}
-
-@include media-breakpoint-only(md) {}
-
-@include media-breakpoint-only(lg) {}
-
-@include media-breakpoint-only(xl) {}
-
-// 
-@include media-breakpoint-down(xl) {}
-
-@include media-breakpoint-down(lg) {}
-
-@include media-breakpoint-down(md) {}
-
-@include media-breakpoint-down(sm) {}
-
-@include media-breakpoint-down(xs) {}

@@ -1,11 +1,5 @@
 "use strict";
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 let div = document.createElement('div');
 div.style.overflowY = 'scroll';
 div.style.width = '50px';
@@ -40,13 +34,17 @@ const JSCCommon = {
 				// SHARE: "Share",
 				// ZOOM: "Zoom"
 
-			} // beforeLoad: function () {
-			// 	root.style.setProperty('--spacing-end', scrollWidth + 'px');
-			// },
-			// afterClose: function () {
-			// 	root.style.setProperty('--spacing-end', null);
-			// },
-
+			},
+			on: {
+				initCarousel: (fancybox, slide) => {
+					//-$('.header').addClass('has-pe');
+					$('body').addClass('remove-fancy-arrow');
+				},
+				destroy: (fancybox, slide) => {
+					//$('.header').removeClass('has-pe');
+					$('body').removeClass('remove-fancy-arrow');
+				}
+			}
 		}); // $(link).fancybox({
 		// });
 
@@ -187,51 +185,6 @@ const JSCCommon = {
 		}
 	},
 
-	sendForm() {
-		var gets = function () {
-			var a = window.location.search;
-			var b = new Object();
-			var c;
-			a = a.substring(1).split("&");
-
-			for (var i = 0; i < a.length; i++) {
-				c = a[i].split("=");
-				b[c[0]] = c[1];
-			}
-
-			return b;
-		}(); // form
-
-
-		$(document).on('submit', "form", function (e) {
-			e.preventDefault();
-			const th = $(this);
-			var data = th.serialize();
-			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
-			$.ajax({
-				url: 'action.php',
-				type: 'POST',
-				data: data
-			}).done(function (data) {
-				fancybox.close();
-				Fancybox.show([{
-					src: "#modal-thanks",
-					type: "inline"
-				}]); // window.location.replace("/thanks.html");
-
-				setTimeout(function () {
-					// Done Functions
-					th.trigger("reset"); // $.magnificPopup.close();
-					// ym(53383120, 'reachGoal', 'zakaz');
-					// yaCounter55828534.reachGoal('zakaz');
-				}, 4000);
-			}).fail(function () {});
-		});
-	},
-
 	heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 		let vh = window.innerHeight * 0.01; // Then we set the value in the --vh custom property to the root of the document
@@ -278,69 +231,33 @@ function eventHandler() {
 	JSCCommon.tabscostume('.tabs--js');
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask();
-	JSCCommon.sendForm();
-	JSCCommon.heightwindow(); // JSCCommon.animateScroll();
-	// JSCCommon.CustomInputFile(); 
-
+	JSCCommon.heightwindow();
 	var x = window.location.host;
 	let screenName;
 	screenName = document.body.dataset.bg;
 
 	if (screenName && x.includes("localhost:30")) {
 		document.body.insertAdjacentHTML("beforeend", "<div class=\"pixel-perfect\" style=\"background-image: url(screen/".concat(screenName, ");\"></div>"));
-	}
-
-	function setFixedNav() {
-		let topNav = document.querySelector('.top-nav  ');
-		if (!topNav) return;
-		window.scrollY > 0 ? topNav.classList.add('fixed') : topNav.classList.remove('fixed');
-	}
-
-	function whenResize() {
-		setFixedNav();
-	}
-
-	window.addEventListener('scroll', () => {
-		setFixedNav();
-	}, {
-		passive: true
-	});
-	window.addEventListener('resize', () => {
-		whenResize();
-	}, {
-		passive: true
-	});
-	whenResize();
-	let defaultSl = {
-		spaceBetween: 0,
-		lazy: {
-			loadPrevNext: true
-		},
-		watchOverflow: true,
-		spaceBetween: 0,
-		loop: true,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
-		},
-		pagination: {
-			el: ' .swiper-pagination',
-			type: 'bullets',
-			clickable: true // renderBullet: function (index, className) {
-			// 	return '<span class="' + className + '">' + (index + 1) + '</span>';
-			// }
-
-		}
-	};
-	const swiper4 = new Swiper('.sBanners__slider--js', _objectSpread(_objectSpread({}, defaultSl), {}, {
-		slidesPerView: 'auto',
-		freeMode: true,
-		loopFillGroupWithBlank: true,
-		touchRatio: 0.2,
-		slideToClickedSlide: true,
-		freeModeMomentum: true
-	})); // modal window
+	} // function setFixedNav() {
+	// 	let topNav = document.querySelector('.top-nav  ');
+	// 	if (!topNav) return;
+	// 	window.scrollY > 0
+	// 		? topNav.classList.add('fixed')
+	// 		: topNav.classList.remove('fixed');
+	// }
+	// function whenResize() {
+	// 	setFixedNav();
+	// }
+	// window.addEventListener('scroll', () => {
+	// 	setFixedNav();
+	// }, { passive: true })
+	// window.addEventListener('resize', () => {
+	// 	whenResize();
+	// }, { passive: true });
+	// whenResize();
+	// modal window
 	//luckyoneJs
+
 
 	let sCertsSlider = new Swiper('.sCerts-slider-js', {
 		slidesPerView: 'auto',
@@ -380,7 +297,31 @@ function eventHandler() {
 	$('.sPrice-show-hide-js').click(function () {
 		$('.sPrice-t-body-js, .sPrice-show-hide-js').toggleClass('active');
 	}); //
-	//end luckyoneJs
+
+	let header = document.querySelector(".header--js");
+
+	function calcHeaderHeight() {
+		document.documentElement.style.setProperty('--header-h', "".concat(header.offsetHeight, "px"));
+	}
+
+	window.addEventListener('resize', calcHeaderHeight, {
+		passive: true
+	});
+	window.addEventListener('scroll', calcHeaderHeight, {
+		passive: true
+	});
+	calcHeaderHeight(); //
+
+	$('.open-bot-nav-js').click(function () {
+		$('.bot-nav-dd').fadeIn(function () {
+			$(this).addClass('active');
+		});
+	});
+	$('.close-bot-nav-js').click(function () {
+		$('.bot-nav-dd').fadeOut(function () {
+			$(this).removeClass('active');
+		});
+	}); //end luckyoneJs
 }
 
 ;
@@ -389,10 +330,4 @@ if (document.readyState !== 'loading') {
 	eventHandler();
 } else {
 	document.addEventListener('DOMContentLoaded', eventHandler);
-} // window.onload = function () {
-// 	document.body.classList.add('loaded_hiding');
-// 	window.setTimeout(function () {
-// 		document.body.classList.add('loaded');
-// 		document.body.classList.remove('loaded_hiding');
-// 	}, 500);
-// }
+}

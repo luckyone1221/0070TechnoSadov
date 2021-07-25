@@ -8,12 +8,11 @@ mixin mob-mnu()
 			+mnu()
 			.d-md-none
 				+mnu2()
-				+e.catalog-btn
+				+e.catalog-btn.open-bot-nav-js
 					+icon('burger')
 					span Все услуги
 			+topNavItems('mb-4')
 			+socRow('mb-3')
-
 	//  мобильное меню
 
 mixin top-nav() 
@@ -43,7 +42,7 @@ mixin topNavItems(addClasses)
 		+e.row.row
 			+topNavItem('logo')
 				+e.i-black--block Москва
-				+e.i-sm(href='#') Выбрать другой город
+				+e.i-sm.link-modal-js(href='#modal-city' data-fancybox) Выбрать другой город
 			+topNavItem('tel')
 				+e.i-black(href='tel:88005503770') 8 800 550-37-70
 				+e.i-sm(href='tel:88005503770') Звонок бесплатный
@@ -57,7 +56,7 @@ mixin topNavItem(iconName)
 				block
 
 mixin bot-nav()
-	+b.bot-nav.d-none.d-md-block
+	+b.bot-nav
 		+e.container.container
 			+e.row.row.align-items-center
 				.col-auto
@@ -65,5 +64,30 @@ mixin bot-nav()
 						+e.all-btn
 							+icon('burger')
 							span Все услуги
+						+botNavDD()
 				.col
 					+mnu2()
+
+mixin botNavDD()
+	+b.bot-nav-dd--js
+		.text-end.mb-4.d-md-none
+			+e.cross-btn.close-bot-nav-js
+				+icon('cross')
+		+e.items-row.row
+			//-for(var i = 0; i < 5; i++)
+			+botNavDDItem(1, 'Ремонт газовых генераторов')
+			+botNavDDItem(2, 'Ремонт дизельных генераторов')
+			+botNavDDItem(3, 'Ремонт инверторных генераторов')
+			+botNavDDItem(3, 'Ремонт инверторных генераторов')
+			+botNavDDItem(1, 'Ремонт газовых генераторов')
+			+botNavDDItem(2, 'Ремонт дизельных генераторов')
+
+mixin botNavDDItem(imgNum, txt)
+	.col-md-6.col-xl-4
+		+e.item(href="#")
+			+e.sub-row.row.d-flex.align-items-center
+				.col-auto.d-block
+					+e.img
+						img(loading="lazy" src=`img/@2x/sAlso-${imgNum}.png` alt="")
+				+e.txt-col.col.d-block=txt
+

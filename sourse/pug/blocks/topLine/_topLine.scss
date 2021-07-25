@@ -7,8 +7,7 @@
 	//
 	&__container{
 		@include media-breakpoint-up(xxl){
-			padding-left: 42px;
-			padding-right: 42px;
+			max-width: 1256px!important;
 		}
 	}
 	&__row{

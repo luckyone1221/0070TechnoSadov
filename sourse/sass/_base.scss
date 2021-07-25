@@ -712,3 +712,23 @@ iframe {
 	text-transform: uppercase;
 	color: $white;
 }
+
+.btn-primary{
+	color: $white!important;
+}
+
+//
+.remove-fancy-arrow{
+	.carousel__button.is-next,
+	.carousel__button.is-prev{
+		display: none;
+	}
+	.fancybox__track{
+		transform: none!important;
+	}
+}
+.fancybox__slide{
+	@include media-breakpoint-down(sm){
+		padding: rem(48) rem(12) !important;
+	}
+}
