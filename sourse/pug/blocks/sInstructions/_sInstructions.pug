@@ -14,11 +14,11 @@ mixin sInstructions(data)
 mixin sInstructionsItem(name)
 	+e.item(href='#')
 		+e.i-row.row.d-flex.align-items-center
-			.col-auto.d-block
+			span.col-auto.d-block
 				+e.img
 					img(loading="lazy" src="img/svg/sPrice-pdf.svg" alt="")
-			.col.d-block
+			span.col.d-block
 				+e.name=name
-			.col-auto.d-block
+			span.col-auto.d-block
 				+e.ball
 					img(loading='lazy' src="img/svg/arrow-down.svg" alt="")

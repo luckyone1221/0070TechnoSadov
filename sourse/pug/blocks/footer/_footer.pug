@@ -7,8 +7,10 @@ mixin footer()
 						img(loading="lazy" src=`img/svg/footer-logo.svg` alt="")
 					+e.pushed-content
 						+e.tells
-							+e.tell(href="tel:88009234567") 8 800 923-45-67
-							+e.tell(href="tel:89217120521") 8 921 712-05-21
+							.d-block
+								+e.tell(href="tel:88009234567") 8 800 923-45-67
+							.d-block
+								+e.tell(href="tel:89217120521") 8 921 712-05-21
 							+e.call-order(href='#') Заказать звонок
 						+e.soc-row.row
 							+footerSocItem('fb')

@@ -660,16 +660,25 @@ iframe {
 		position: sticky;
 		top: rem(24);
 		left: 0;
+
+		border-radius: rem(8);
+		border: 1px solid $gray-500;
+		overflow: hidden;
 	}
+
+	//
 	&__s-item{
 		@include mt();
 		display: block;
 		text-decoration: none;
 
-		border: 1px solid $gray-500;
-		background: $white;
+		border-bottom: 1px solid $gray-500;
+		&:last-child{
+			border-bottom: none;
+		}
+
+		background-color: transparent;
 		padding: rem(15) rem(23);
-		margin-bottom: -1px;
 
 
 		position: relative;
@@ -679,8 +688,8 @@ iframe {
 		color: $body-color;
 
 		&:hover{
-			color: $body-color;
-			border-color: $primary;
+			color: $primary;
+			//border-color: $primary;
 			z-index: 2;
 		}
 		&.active{
@@ -688,14 +697,46 @@ iframe {
 			color: $white;
 		}
 
-		&:first-child{
-			border-radius: rem(8) rem(8) 0 0;
-		}
-		&:last-child{
-			border-radius: 0 0 rem(8) rem(8);
+		&--toggle{
+			display: flex;
+			align-items: center;
+			@include mt();
+
+			border-bottom: none!important;
+			&.active{
+				&:after{
+					transform: rotateX(180deg);
+				}
+				border-bottom: 1px solid $gray-500!important;
+				background: rgba($primary, .05);
+				color: $body-color;
+			}
+
+			&:after{
+				@include mt();
+				flex-shrink: 0;
+				content: '';
+				width: rem(16);
+				height: rem(16);
+				display: inline-block;
+				margin-left: auto;
+
+				background-image: url(../img/svg/chevron-down.svg);
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
 		}
 	}
-	&__{}
+	&__sidebar-content{
+		display: none;
+		&.active{
+			display: block;
+		}
+		@include media-breakpoint-up(lg){
+			display: block!important;
+		}
+	}
 	&__{}
 }
 

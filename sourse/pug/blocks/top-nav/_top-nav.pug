@@ -42,7 +42,7 @@ mixin topNavItems(addClasses)
 		+e.row.row
 			+topNavItem('logo')
 				+e.i-black--block Москва
-				+e.i-sm.link-modal-js(href='#modal-city' data-fancybox) Выбрать другой город
+				+e.i-sm(href='#modal-city' data-fancybox='') Выбрать другой город
 			+topNavItem('tel')
 				+e.i-black(href='tel:88005503770') 8 800 550-37-70
 				+e.i-sm(href='tel:88005503770') Звонок бесплатный
@@ -86,7 +86,7 @@ mixin botNavDDItem(imgNum, txt)
 	.col-md-6.col-xl-4
 		+e.item(href="#")
 			+e.sub-row.row.d-flex.align-items-center
-				.col-auto.d-block
+				span.col-auto.d-block
 					+e.img
 						img(loading="lazy" src=`img/@2x/sAlso-${imgNum}.png` alt="")
 				+e.txt-col.col.d-block=txt

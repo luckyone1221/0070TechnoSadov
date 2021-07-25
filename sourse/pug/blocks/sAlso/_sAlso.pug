@@ -15,7 +15,7 @@ mixin sAlsoItem(imgNum, name)
 	.col-md-6
 		+e.item(href="#")
 			+e.item-row.row.align-items-center.d-flex
-				.col-auto.d-block
+				span.col-auto.d-block
 					+e.img
 						img(loading="lazy" src=`img/@2x/sAlso-${imgNum}.png` alt="")
 				+e.name-col.col.d-block=name

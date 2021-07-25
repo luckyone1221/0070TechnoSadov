@@ -22,7 +22,7 @@
 	}
 	&__row{
 		--bs-gutter-x: #{rem(24)};
-		--bs-gutter-y: #{rem(24)};
+		--bs-gutter-y: #{rem(20)};
 	}
 	&__item{
 		display: flex;
@@ -34,7 +34,10 @@
 		position: relative;
 		z-index: 1;
 
-		min-height: rem(144);
+		min-height: rem(100);
+		@include media-breakpoint-up(lg){
+			min-height: rem(144);
+		}
 		border-radius: rem(8);
 		overflow: hidden;
 
@@ -48,7 +51,13 @@
 		}
 		text-decoration: none;
 
+		&:hover{
+			&:after{
+				width: 150%;
+			}
+		}
 		&:after{
+			@include mt();
 			content: '';
 			position: absolute;
 			z-index: -1;

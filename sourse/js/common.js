@@ -38,16 +38,16 @@ const JSCCommon = {
         // SHARE: "Share",
         // ZOOM: "Zoom"
       },
-			on: {
-				initCarousel: (fancybox, slide) => {
-					//-$('.header').addClass('has-pe');
-					$('body').addClass('remove-fancy-arrow');
-				},
-				destroy: (fancybox, slide) => {
-					//$('.header').removeClass('has-pe');
-					$('body').removeClass('remove-fancy-arrow');
-				},
-			},
+			// on: {
+			// 	initCarousel: (fancybox, slide) => {
+			// 		//-$('.header').addClass('has-pe');
+			// 		$('body').addClass('remove-fancy-arrow');
+			// 	},
+			// 	destroy: (fancybox, slide) => {
+			// 		//$('.header').removeClass('has-pe');
+			// 		$('body').removeClass('remove-fancy-arrow');
+			// 	},
+			// },
 
     });
 
@@ -228,7 +228,26 @@ function eventHandler() {
   JSCCommon.ifie();
   JSCCommon.modalCall();
   JSCCommon.tabscostume('.tabs--js');
-  JSCCommon.mobileMenu();
+  //JSCCommon.mobileMenu();
+  $('.toggle-menu-mobile--js').click(function (){
+    document.body.removeEventListener('click', mobMenuMissClick);
+
+    $('.toggle-menu-mobile--js').toggleClass('on');
+    $('body').toggleClass('fixed');
+    $('.menu-mobile--js').toggleClass('active');
+
+    window.setTimeout(function (){
+      document.body.addEventListener('click', mobMenuMissClick);
+    }, 10);
+  });
+  function mobMenuMissClick(){
+    if(!event.target.closest('.menu-mobile--js') && !event.target.closest('.bot-nav-dd--js')){
+      $('.toggle-menu-mobile--js').removeClass('on');
+      $('body').removeClass('fixed');
+      $('.menu-mobile--js').removeClass('active');
+    }
+  }
+
   JSCCommon.inputMask();
   JSCCommon.heightwindow();
 
@@ -238,25 +257,6 @@ function eventHandler() {
   if (screenName && x.includes("localhost:30")) {
     document.body.insertAdjacentHTML("beforeend", `<div class="pixel-perfect" style="background-image: url(screen/${screenName});"></div>`);
   }
-
-
-  // function setFixedNav() {
-  // 	let topNav = document.querySelector('.top-nav  ');
-  // 	if (!topNav) return;
-  // 	window.scrollY > 0
-  // 		? topNav.classList.add('fixed')
-  // 		: topNav.classList.remove('fixed');
-  // }
-  // function whenResize() {
-  // 	setFixedNav();
-  // }
-  // window.addEventListener('scroll', () => {
-  // 	setFixedNav();
-  // }, { passive: true })
-  // window.addEventListener('resize', () => {
-  // 	whenResize();
-  // }, { passive: true });
-  // whenResize();
 
   // modal window
   //luckyoneJs
@@ -284,8 +284,8 @@ function eventHandler() {
       $(this).toggleClass('hidden');
     })
 
-    $('.sTags-close-btn-js').fadeIn(function () {
-      $(this).addClass('active');
+    $('.sTags-close-btn-js').fadeToggle(function () {
+      $(this).toggleClass('active');
     });
   })
   $('.sTags-close-btn-js').click(function () {
@@ -324,6 +324,14 @@ function eventHandler() {
   $('.close-bot-nav-js').click(function () {
     $('.bot-nav-dd').fadeOut(function () {
       $(this).removeClass('active');
+    })
+  });
+  //sidebar
+  $('.sidebar-toggle-js').click(function (){
+    $(this).toggleClass('active');
+
+    $('.sidebar-content-js').slideToggle(function (){
+      $(this).toggleClass('active');
     })
   });
 

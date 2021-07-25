@@ -9,7 +9,7 @@ mixin input(placeholder,  t='text', label, name= t)
 			+e.TEXTAREA.input.form-control(name=name placeholder=placeholder)
 		else if t== "select"
 			+e.SELECT.input.form-select( name= name)&attributes(attributes)
-				option(value= placeholder)= placeholder
+				option(value= placeholder)=`${placeholder || 'option'}`
 				- for (var x = 1; x < 5; x++)
 					option(value=` placeholder ${x}`)= `placeholder ${x}`
 		else if t=='file'

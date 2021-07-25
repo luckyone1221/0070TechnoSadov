@@ -16,7 +16,7 @@ include ../blocks/sTech/_sTech.pug
 include ../blocks/sPrice/_sPrice.pug
 
 block variables
-	- let  mainPage= null 
+	- let  mainPage= null
 	- let  bg= '01.png'
 
 block title
@@ -42,16 +42,19 @@ block pagecontent
 			+e.row.row
 				+e.sidebar-col.col-lg-3
 					+e.sidebar
-						+e.s-item.active(href="#") Ремонт бензогенераторов
-						+e.s-item(href="#") Ремонт триммеров
-						+e.s-item(href="#") Ремонт бензопил
-						+e.s-item(href="#") Ремонт бензорезов
-						+e.s-item(href="#") Ремонт виброплит
-						+e.s-item(href="#") Ремонт газонокосилок
-						+e.s-item(href="#") Ремонт двигателей
-						+e.s-item(href="#") Ремонт культиваторов
-						+e.s-item(href="#") Ремонт лодочных моторов
-						+e.s-item(href="#") Ремонт мотоблоков
+						+e.s-item--toggle.sidebar-toggle-js.d-lg-none
+							span Виды ремонта
+						+e.sidebar-content.sidebar-content-js
+							+e.s-item.active(href="#") Ремонт бензогенераторов
+							+e.s-item(href="#") Ремонт триммеров
+							+e.s-item(href="#") Ремонт бензопил
+							+e.s-item(href="#") Ремонт бензорезов
+							+e.s-item(href="#") Ремонт виброплит
+							+e.s-item(href="#") Ремонт газонокосилок
+							+e.s-item(href="#") Ремонт двигателей
+							+e.s-item(href="#") Ремонт культиваторов
+							+e.s-item(href="#") Ремонт лодочных моторов
+							+e.s-item(href="#") Ремонт мотоблоков
 				.col-lg-9
 					+sTags()
 					+sUsefull()
